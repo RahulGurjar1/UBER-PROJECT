@@ -59,3 +59,54 @@ Logs in an existing user.
   }
 }
 ```
+
+## /users/profile
+
+### Method
+GET
+
+### Description
+Gets the profile information of the authenticated user.
+
+### Headers
+- Authorization: Bearer {token}
+
+### Status Codes
+- 200: Returns user profile data
+- 401: Unauthorized (invalid or missing token)
+
+### Example Response
+```json
+{
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.doe@example.com",
+  "_id": "user_id"
+}
+```
+
+## /users/logout
+
+### Method
+GET
+
+### Description
+Logs out the currently authenticated user by blacklisting their token.
+
+### Authentication
+Requires either:
+- Authorization header with Bearer token
+- Token in cookies
+
+### Status Codes
+- 200: Successfully logged out
+- 401: Unauthorized (invalid or missing token)
+
+### Example Response
+```json
+{
+  "message": "Logged out successfully"
+}
+```
