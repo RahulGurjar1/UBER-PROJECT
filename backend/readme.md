@@ -110,3 +110,48 @@ Requires either:
   "message": "Logged out successfully"
 }
 ```
+
+
+# Captain Endpoints
+
+## /captains/register
+
+### Method
+POST
+
+### Description
+Registers a new captain with vehicle details.
+
+### Request Body
+- fullname: 
+  - firstname: string (min 3 characters)
+  - lastname: string (min 3 characters)
+- email: string (valid email format)
+- password: string (min 6 characters)
+- vehicle:
+  - color: string (min 3 characters)
+  - plate: string (min 3 characters)
+  - capacity: number (min 1)
+  - vehicleType: string (enum: 'car', 'motorcycle', 'auto')
+
+### Status Codes
+- 201: Returns a JSON object with token and newly created captain
+- 400: Invalid request body or validation errors
+
+### Example Request
+```json
+{
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.captain@example.com",
+  "password": "password123",
+  "vehicle": {
+    "color": "Black",
+    "plate": "ABC-123",
+    "capacity": 4,
+    "vehicleType": "car"
+  }
+}
+```
