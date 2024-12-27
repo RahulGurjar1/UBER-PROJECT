@@ -155,3 +155,101 @@ Registers a new captain with vehicle details.
   }
 }
 ```
+
+## /captains/login
+
+### Method
+POST
+
+### Description
+Authenticates a captain and returns a token.
+
+### Request Body
+- email: string (valid email format)
+- password: string (min 6 characters)
+
+### Status Codes
+- 200: Returns token and captain details
+- 400: Invalid request body
+- 401: Invalid email or password
+
+### Example Response
+```json
+{
+  "token": "example_token_here",
+  "captain": {
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.captain@example.com",
+    "vehicle": {
+      "color": "Black",
+      "plate": "ABC-123",
+      "capacity": 4,
+      "vehicleType": "car"
+    },
+    "status": "inactive"
+  }
+}
+```
+
+## /captains/profile
+
+### Method
+GET
+
+### Description
+Gets the profile information of the authenticated captain.
+
+### Headers
+- Authorization: Bearer {token}
+  or
+- Cookie: token={token}
+
+### Status Codes
+- 200: Returns captain profile data
+- 401: Unauthorized (invalid or missing token)
+
+### Example Response
+```json
+{
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.captain@example.com",
+  "vehicle": {
+    "color": "Black",
+    "plate": "ABC-123",
+    "capacity": 4,
+    "vehicleType": "car"
+  },
+  "status": "inactive",
+  "_id": "captain_id"
+}
+```
+
+## /captains/logout
+
+### Method
+GET
+
+### Description
+Logs out the currently authenticated captain by blacklisting their token.
+
+### Authentication
+Requires one of:
+- Authorization: Bearer {token}
+- Cookie: token={token}
+
+### Status Codes
+- 200: Successfully logged out
+- 401: Unauthorized (invalid or missing token)
+
+### Example Response
+```json
+{
+  "message": "Logged out successfully"
+}
+```
