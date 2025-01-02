@@ -109,8 +109,8 @@ const Home = () => {
 
       <div
         className='h-screen w-screen'>
-        <img className='h-full w-full object-cover' src='https://img.freepik.com/free-vector/taxi-app-interface-illustration_23-2148487606.jpg?t=st=1735486603~exp=1735490203~hmac=9a5a61e0dd6681c6ba227fb1c1d6e612c55a978975b0bfdbefae36ff1b852c58&w=740' alt='' />
-      </div>
+      </div>        <img className='h-full w-full object-cover' src='https://img.freepik.com/free-vector/taxi-app-interface-illustration_23-2148487606.jpg?t=st=1735486603~exp=1735490203~hmac=9a5a61e0dd6681c6ba227fb1c1d6e612c55a978975b0bfdbefae36ff1b852c58&w=740' alt='' />
+
       <div className='h-screen absolute top-0 w-full flex flex-col justify-end'>
         <div className='bg-white h-[35%] p-6 relative'>
           <h5
